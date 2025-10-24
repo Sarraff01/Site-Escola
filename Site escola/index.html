@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática em Ação: Programação 3ºB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>MATEMÁTICA $\Pi$</h1>
+            <p class="subtitle">A Programação como Ferramenta de Visualização e Lógica. <span>Projetos do 3ºB.</span></p>
+            <a href="#projetos-grid" class="botao-primario">
+                Explorar Projetos Visuais ⬇️
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="projetos-grid">
+            <h2>Escolha seu Projeto Interativo</h2>
+
+            <div class="grid-projetos">
+                
+                <div class="card-projeto" data-jogo-id="pong">
+                    <div class="preview-imagem">
+                        [Imagem de Preview do Jogo Pong] 
+                        <div class="overlay">
+                            <button onclick="mudarParaDemonstracao('pong')" class="botao-play">▶️ JOGAR PONG</button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Pong: Coordenadas e Colisão</h3>
+                        <p>Aplicações de geometria cartesiana (eixo X/Y) e lógica de colisão para a criação de um jogo clássico.</p>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-jogo-id="scratch1">
+                    <div class="preview-imagem">
+                        [Imagem de Preview Scratch - Funções]
+                        <div class="overlay">
+                            <button onclick="mudarParaDemonstracao('scratch1')" class="botao-play">▶️ VER SIMULAÇÃO</button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Gráfico Dinâmico de Funções</h3>
+                        <p>Simulação em Scratch para visualizar como a mudança de variáveis afeta o gráfico de uma função quadrática.</p>
+                    </div>
+                </div>
+
+                <div class="card-projeto" data-jogo-id="scratch2">
+                    <div class="preview-imagem">
+                        [Imagem de Preview Scratch - Geometria]
+                        <div class="overlay">
+                            <button onclick="mudarParaDemonstracao('scratch2')" class="botao-play">▶️ INTERAGIR</button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Geometria de Movimento e Ângulos</h3>
+                        <p>Jogo que utiliza trigonometria e ângulos para o movimento de um personagem ou objeto, explorando o plano.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="area-demonstracao">
+            <h2>🕹️ Demonstração em Tempo Real</h2>
+            <p class="descricao-demonstracao">Selecione um projeto acima ou interaja diretamente com o projeto escolhido abaixo:</p>
+
+            <div id="pong" class="jogo-container ativo">
+                <p class="legenda">**Pong:** Use as teclas W/S para a raquete esquerda e as setas UP/DOWN para a raquete direita.</p>
+                <canvas id="pong-canvas" width="600" height="400">Seu navegador não suporta Canvas.</canvas>
+            </div>
+
+            <div id="scratch1" class="jogo-container oculto">
+                <p class="legenda">**Projeto 1:** Clique na bandeira verde do Scratch para iniciar a simulação.</p>
+                <iframe src="[//scratch.mit.edu/projects/1230247599/embed?autostart=false]" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            </div>
+
+            <div id="scratch2" class="jogo-container oculto">
+                <p class="legenda">**Projeto 2:** Jogo ou simulação sobre geometria. Interaja com os comandos do Scratch.</p>
+                <iframe src="[Link de Incorporação do Projeto Scratch 2]" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            </div>
+
+        </section>
+
+        <section id="conceitos">
+            <h2>💡 Conceitos de Matemática II</h2>
+            <ul>
+                <li>**Coordenadas Cartesianas (x, y):** Posicionamento de elementos e detecção de colisão.</li>
+                <li>**Funções e Variáveis:** Fundamento para o movimento de objetos e plotagem de gráficos.</li>
+                <li>**Lógica Booleana (IF/ELSE):** Determinando as regras de jogo, rebatidas e pontuação.</li>
+            </ul>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - 3º Ano B - Colégio Estadual Prof. Julio Cesar | Exposição de Programação e Matemática.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

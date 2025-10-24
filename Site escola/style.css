@@ -1,0 +1,244 @@
+/* Definição de Cores e Fontes - Mais Contraste e Espaço em Branco */
+:root {
+    --cor-primaria: #007BFF; /* Azul de Destaque */
+    --cor-fundo: #FFFFFF; /* Fundo Totalmente Branco */
+    --cor-texto-principal: #111111; 
+    --cor-texto-secundario: #444444;
+    --cor-borda: #EBEBEB;
+    --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra MUITO sutil */
+    --sombra-card-hover: 0 15px 40px rgba(0, 123, 255, 0.2); /* Sombra azul para destaque */
+}
+
+/* Reset Básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo);
+}
+
+/* Estrutura Central e Tipografia de Alto Impacto */
+.container {
+    max-width: 1200px; /* Um pouco mais largo para o grid */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--cor-fundo);
+    padding: 100px 0 60px 0; /* Mais espaço para respirar */
+    border-bottom: 2px solid var(--cor-borda);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 4.5em; /* Título MÁXIMO */
+    font-weight: 900; 
+    color: var(--cor-texto-principal);
+    letter-spacing: -3px; 
+    line-height: 1;
+}
+
+.subtitle {
+    font-size: 1.6em;
+    font-weight: 300; /* Mais leve */
+    color: var(--cor-texto-secundario);
+    margin-top: 15px;
+}
+
+.subtitle span {
+    font-weight: 500;
+    color: var(--cor-primaria);
+}
+
+main section {
+    padding: 100px 0; /* MUITO padding vertical */
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+h2 {
+    font-size: 3.5em; 
+    font-weight: 800; 
+    margin-bottom: 40px;
+    color: var(--cor-texto-principal);
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* Botão Primário (CTA) */
+.botao-primario {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: 700;
+    padding: 18px 40px; 
+    border-radius: 50px; /* Botão arredondado */
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 50px;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4); 
+    transition: all 0.3s;
+}
+
+.botao-primario:hover {
+    background-color: #0056b3; 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.6);
+}
+
+/* ============================================== */
+/* ESTILO DA SEÇÃO GRID DE PROJETOS (Portfólio)   */
+/* ============================================== */
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 Colunas responsivas */
+    gap: 40px; /* Espaço entre os cards */
+    margin-top: 50px;
+}
+
+.card-projeto {
+    background-color: #FAFAFA;
+    border-radius: 10px;
+    overflow: hidden; /* Garante que a imagem fique dentro do card */
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card-projeto:hover {
+    transform: translateY(-8px); /* Efeito de levantar */
+    box-shadow: var(--sombra-card-hover); /* Sombra de destaque azul */
+}
+
+.preview-imagem {
+    position: relative;
+    height: 200px; /* Altura fixa para as imagens */
+    background-color: #333; /* Fundo escuro enquanto a imagem não carrega */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay escuro */
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.card-projeto:hover .overlay {
+    opacity: 1;
+}
+
+.botao-play {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.botao-play:hover {
+    background-color: #0056b3;
+}
+
+.card-info {
+    padding: 25px;
+    text-align: left;
+}
+
+.card-info h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--cor-primaria);
+}
+
+.card-info p {
+    font-size: 0.95em;
+    color: var(--cor-texto-secundario);
+}
+
+
+/* ============================================== */
+/* ESTILO DA ÁREA DE DEMONSTRAÇÃO (Oculta/Visível)*/
+/* ============================================== */
+
+#area-demonstracao {
+    text-align: center;
+}
+
+.descricao-demonstracao {
+    font-size: 1.2em;
+    color: var(--cor-texto-principal);
+    margin-bottom: 40px;
+}
+
+.jogo-container {
+    background-color: #F8F8F8;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    /* Transição suave de entrada/saída */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out;
+}
+
+.jogo-container.ativo {
+    opacity: 1;
+    max-height: 1200px;
+    overflow: visible;
+    display: block;
+}
+
+/* Canvas e Iframe */
+#pong-canvas, .jogo-container iframe {
+    border: 3px solid var(--cor-primaria); 
+    border-radius: 8px;
+    margin: 30px auto;
+    display: block; 
+}
+
+#pong-canvas {
+    background-color: #000000;
+}
+
+.legenda {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--cor-texto-secundario);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.9em;
+    color: white;
+    background-color: var(--cor-texto-principal); 
+    border-top: 1px solid var(--cor-borda);
+}
