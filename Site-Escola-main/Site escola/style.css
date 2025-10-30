@@ -1,0 +1,301 @@
+/* Definição de Cores e Fontes */
+:root {
+    --cor-primaria: #4C6DE5; /* Azul/Roxo do Modelo AI (Destaque Principal) */
+    --cor-secundaria: #F8F8F8; /* Fundo Levemente Cinza para Conteúdo */
+    --cor-fundo-dark: #1E1B3E; /* Azul Marinho Profundo para o Hero */
+    --cor-texto-dark: #FFFFFF; /* Texto no Fundo Escuro */
+    --cor-texto-principal: #111111; 
+    --cor-texto-secundario: #444444;
+    --cor-borda: #EBEBEB;
+    --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    --sombra-card-hover: 0 15px 40px rgba(76, 109, 229, 0.4); 
+}
+
+/* Reset Básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo);
+}
+
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================== */
+/* SEÇÃO HERO (Dark Theme - Fundo Tecnológico)    */
+/* ============================================== */
+.hero-dark {
+    background-color: var(--cor-fundo-dark);
+    color: var(--cor-texto-dark);
+    padding-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+    
+    /* IMAGEM DE FUNDO IGUAL AO MODELO */
+    background-image: url('23324.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Efeito de Overlay Escuro para o Texto se Destacar */
+    box-shadow: inset 0 0 0 2000px rgba(30, 27, 62, 0.85); 
+}
+
+/* Header e Menu dentro da Seção Hero */
+.hero-dark header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    background: none; /* Remove background extra */
+    border-bottom: none;
+}
+
+.hero-dark .logo h1 {
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--cor-texto-dark);
+    letter-spacing: 0;
+}
+
+.nav-menu a {
+    color: var(--cor-texto-dark);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+}
+.nav-menu a:hover {
+    border-bottom-color: var(--cor-primaria);
+}
+
+/* Conteúdo Central do Hero */
+.hero-content {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+.hero-content h2 {
+    font-size: 4.5em; 
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    color: var(--cor-texto-dark);
+}
+
+.hero-content p {
+    font-size: 1.8em;
+    font-weight: 300;
+    color: #C0C0C0; /* Cinza Claro */
+    margin-bottom: 20px;
+}
+
+.hero-subtext {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+/* Botão Primário (CTA no Hero) */
+.botao-primario {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: 700;
+    padding: 18px 40px; 
+    border-radius: 50px; 
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    box-shadow: 0 6px 15px rgba(76, 109, 229, 0.5); 
+    transition: all 0.3s;
+}
+
+.botao-primario:hover {
+    background-color: #3859d0;
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 25px rgba(76, 109, 229, 0.8);
+}
+
+
+/* ============================================== */
+/* SEÇÕES DE CONTEÚDO (Fundo Claro)               */
+/* ============================================== */
+main section {
+    background-color: var(--cor-fundo);
+    padding: 100px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    text-align: center;
+}
+
+main h2 {
+    font-size: 3.5em; 
+    font-weight: 800; 
+    color: var(--cor-texto-principal);
+    letter-spacing: -1px;
+}
+
+/* Grid de Projetos */
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.card-projeto {
+    background-color: var(--cor-secundaria);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card-projeto:hover {
+    transform: translateY(-8px); 
+    box-shadow: var(--sombra-card-hover); 
+}
+
+.preview-imagem {
+    position: relative;
+    height: 200px;
+    background-color: var(--cor-fundo-dark); /* Fundo escuro para a área da imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    color: white;
+}
+
+.overlay {
+    /* ... (Estilos do overlay mantidos da versão anterior) ... */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(76, 109, 229, 0.7); /* Overlay com cor primaria */
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.card-projeto:hover .overlay {
+    opacity: 1;
+}
+
+.botao-play {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.botao-play:hover {
+    background-color: #3859d0;
+}
+
+.card-info {
+    padding: 25px;
+    text-align: left;
+}
+
+.card-info h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--cor-primaria);
+}
+
+.card-info p {
+    font-size: 0.95em;
+    color: var(--cor-texto-secundario);
+}
+
+/* Área de Demonstração (Jogável) */
+#area-demonstracao {
+    background-color: var(--cor-secundaria);
+}
+.jogo-container {
+    background-color: white;
+    box-shadow: var(--sombra-suave);
+}
+.legenda {
+    color: var(--cor-texto-principal);
+}
+
+/* Conceitos */
+ul {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+ul li {
+    font-size: 1.1em;
+    padding: 15px 0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+
+/* Footer (Escuro) */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.9em;
+    color: white;
+    background-color: var(--cor-texto-principal); 
+}
+
+/* ============================================== */
+/* ANIMAÇÃO DE FADE-IN NA ROLAGEM (Scroll)        */
+/* ============================================== */
+
+.js-animar-ao-rolar {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de animação mais profissional */
+}
+
+.js-animar-ao-rolar.animacao-ativa {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+/* Atrasos para os Cards do Grid */
+.grid-projetos .card-projeto:nth-child(1).js-animar-ao-rolar {
+    transition-delay: 0.0s;
+}
+.grid-projetos .card-projeto:nth-child(2).js-animar-ao-rolar {
+    transition-delay: 0.1s;
+}
+.grid-projetos .card-projeto:nth-child(3).js-animar-ao-rolar {
+    transition-delay: 0.2s;
+}
+/* Garante que o conteúdo do footer não tenha animação de scroll, se for dark */
+footer.js-animar-ao-rolar {
+    transition-delay: 0s;
+}
