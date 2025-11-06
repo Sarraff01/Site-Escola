@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Game Hub - Demos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Variáveis de Cor --- */
+        :root {
+            --bg-dark: #0F0A1F;
+            --bg-card: #1E1533;
+            --bg-placeholder: #2a204b; /* Fundo do placeholder de imagem */
+            --primary: #9F55FF;
+            --primary-glow: rgba(159, 85, 255, 0.3);
+            --text-light: #F0F0F8;
+            --text-muted: #A09CB8;
+        }
+
+        /* --- Estilos Globais --- */
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-light) !important;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #b37cff;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        /* --- Seção Hero --- */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(145deg, var(--bg-dark) 0%, #1c103b 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Efeito de fade na base do hero */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--bg-dark));
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-section .lead {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+            animation: fadeInUp 1s ease-out 0.3s;
+            animation-fill-mode: backwards;
+        }
+        
+        .hero-section .btn {
+            animation: fadeInUp 1s ease-out 0.6s;
+            animation-fill-mode: backwards;
+        }
+
+        /* --- Seção de Demos (O ESTILO NOVO, UNIFICADO) --- */
+        .demos-section {
+            padding: 6rem 0;
+            background-color: var(--bg-dark); /* Garante o fundo */
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+            font-size: 2.5rem;
+        }
+
+        .demo-preview-card { /* Antiga 'project-preview-card' */
+            display: block;
+            text-decoration: none;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden; /* Para o radius funcionar no placeholder */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            /* Animação de Scroll */
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .demo-preview-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .demo-preview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px var(--primary-glow);
+        }
+
+        .demo-image-placeholder { /* Antiga 'project-image-placeholder' */
+            height: 200px;
+            background-color: var(--bg-placeholder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 3rem; /* Tamanho do ícone */
+        }
+        
+        /* Se você usar <img>, ela vai se ajustar */
+        .demo-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .demo-caption { /* Antiga 'project-caption' */
+            padding: 1.5rem;
+        }
+
+        .demo-caption h3 {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .demo-caption p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* --- Animações CSS Keyframes --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-robot"></i> Matemática II</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1>Programação - A Analogia dos Códigos</h1>
+            <p class="lead">
+                Projetos elaborados por alunos do 3º ano B - 2025
+            </p>
+            <a href="#demos" class="btn btn-primary btn-lg">Ver Projetos</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="demos" class="demos-section">
+            <div class="container">
+                <h2 class="section-title">Nossas Demos Jogáveis</h2>
+
+                <div class="row g-4 justify-content-center">
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="demo-preview-card animate-on-scroll">
+                            
+                            <div class="demo-image-placeholder">
+                                <i class="bi bi-image-fill"></i>
+                            </div>
+
+                            <div class="demo-caption">
+                                <h3>Demo Jogo 1: "Nexus"</h3>
+                                <p>Um shooter tático onde a IA do esquadrão inimigo aprende com seus movimentos.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="demo-preview-card animate-on-scroll" style="transition-delay: 0.1s;">
+                            <div class="demo-image-placeholder">
+                                <i class="bi bi-image-fill"></i>
+                            </div>
+                            <div class="demo-caption">
+                                <h3>Demo Jogo 2: "Echoes"</h3>
+                                <p>Resolva puzzles complexos gerados processualmente por uma IA criativa.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="demo-preview-card animate-on-scroll" style="transition-delay: 0.2s;">
+                            <div class="demo-image-placeholder">
+                                <i class="bi bi-image-fill"></i>
+                            </div>
+                            <div class="demo-caption">
+                                <h3>Demo Jogo 3: "Aegis"</h3>
+                                <p>Um RPG de estratégia onde seu companheiro AI desenvolve uma personalidade única.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div> </div> </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'var(--bg-card)';
+                } else {
+                    navbar.style.background = 'transparent';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
